@@ -90,3 +90,42 @@ export default class Main extends Vue {
     <pre v-if="check">You are registered</pre>
   </div>
 </template>
+
+
+<style scoped>
+
+
+.form_button {
+  width: 100px;
+  height: 35px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  color : #fff;
+  background-color: #85a0be;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+ }
+button:not(:active) {
+  transform: scale(1.0);
+}
+button:disabled {
+  background-color: #679ed9;
+}
+h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.error {
+  border-color: red;
+}
+.error_input {
+  color: red;
+  font-size: small;
+  padding-top: 10px;
+}
+</style>
+
+
