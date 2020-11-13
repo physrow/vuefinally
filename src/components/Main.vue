@@ -2,8 +2,8 @@
 import { Component, Vue } from "vue-property-decorator";
 @Component
 export default class Main extends Vue {
-  checked(name, second_name, phone_number, age, gender,month) {
-    return name && second_name && phone_number && age && gender && month;
+  checked(name, second_name, phone_number, age, gender,check_word) {
+    return name && second_name && phone_number && age && gender && check_word;
   }
   check = false;
   first_name = "";
@@ -14,11 +14,11 @@ export default class Main extends Vue {
   validator_word = /[A-Z-a-z]/;
   month = null;
   now = new Date().getMonth() + 1;
+  secret_word = "2020"
+  check_word = ""
 
-  captcha(month){
-    if (month !==  this.now){
-      return true;
-    }
+  captcha(check_word) {
+    return this.secret_word === check_word;
   }
   name(name) {
     if (name !== "" && name.length < 30) {
@@ -30,7 +30,6 @@ export default class Main extends Vue {
         return true;
     }else return false;
   }
-
   get Data() {
     return {
       first_name: this.first_name,
@@ -40,8 +39,6 @@ export default class Main extends Vue {
       number: this.number
     };
   }
-
-
   phone_number(number) {
     if (number.length === 11 && (number[0] === "8" || number[0] === "7")){
       return true;
@@ -95,7 +92,7 @@ export default class Main extends Vue {
     </div>
       <div class="one">
       <label>
-        <input type="number" placeholder="NUMBER OF THIS MONTH?" v-model="month" class="form_input"/>
+        <input type="text" placeholder="NUMBER OF THIS YEAR?" v-model="month" class="form_input"/>
       </label>
     </div>
     <button type="submit" class="form_button" v-on:click="check = checked(name(first_name), name(second_name), phone_number(number), years(age), choice(gender),captcha(month))">Registration</button>
