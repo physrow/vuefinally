@@ -23,5 +23,5 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 "# vuefinally" 
-"# vuefinally" 
-"# vuefinally" 
+https://www.npmjs.com/package/vue-property-decorator
+Для использования декораторов #npm i -S vue-property-decorator
