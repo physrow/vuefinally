@@ -1,5 +1,5 @@
 <script>
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";// FOR USED #npm i -S vue-property-decorator #manualhttps://www.npmjs.com/package/vue-property-decorator
 @Component
 export default class Main extends Vue {
   checked(name, second_name, phone_number, age, gender,check_word) {
@@ -13,9 +13,9 @@ export default class Main extends Vue {
   gender = "";
   validator_word = /[A-Z-a-z]/;
   month = null;
-  now = new Date().getMonth() + 1;
+  //now = new Date().getMonth() + 1;
   secret_word = "2020"
-  check_word = ""
+  //check_word = ""
 
   captcha(check_word) {
     return this.secret_word === check_word;
@@ -30,22 +30,13 @@ export default class Main extends Vue {
         return true;
     }else return false;
   }
-  get Data() {
-    return {
-      first_name: this.first_name,
-      second_name: this.second_name,
-      gender: this.gender,
-      age: this.age,
-      number: this.number
-    };
-  }
   phone_number(number) {
     if (number.length === 11 && (number[0] === "8" || number[0] === "7")){
       return true;
     }
   }
   years(age) {
-    return age < 100;
+    return age < 100 && age > 0;
   }
   choice(gender) {
     return gender !== "";
